@@ -15,6 +15,7 @@ public:
 
   void set_voltage_sensor(sensor::Sensor *voltage_sensor) { voltage_sensor_ = voltage_sensor; }
   void set_current_sensor(sensor::Sensor *current_sensor) { current_sensor_ = current_sensor; }
+  void set_minutes_sensor(sensor::Sensor *remaining_time_sensor) { minutes_sensor_ = remaining_time_sensor; }
   void set_temperature_sensor(sensor::Sensor *temperature) { temperature_ = temperature; }
 
   void set_battery_level_sensor(sensor::Sensor *battery_level_sensor) { battery_level_sensor_ = battery_level_sensor; }
@@ -38,6 +39,7 @@ protected:
   sensor::Sensor* current_sensor_{nullptr};
   sensor::Sensor* battery_level_sensor_{nullptr};
   sensor::Sensor* temperature_{nullptr};
+  sensor::Sensor* minutes_sensor_{nullptr};
 
   static constexpr int MAX_LINE_LEN = 120;
   std::array<char, MAX_LINE_LEN> line_buffer_;
