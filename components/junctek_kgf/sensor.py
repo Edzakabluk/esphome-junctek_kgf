@@ -4,6 +4,7 @@ from esphome.components import sensor, uart
 from esphome.const import (
     CONF_ADDRESS,
     CONF_BATTERY_LEVEL,
+    CONF_CAPACITY,
     CONF_CURRENT,
     CONF_ID,
     CONF_MINUTES,
@@ -35,6 +36,7 @@ TYPES = [
     CONF_BATTERY_LEVEL,
     CONF_TEMPERATURE,
     CONF_MINUTES,
+    CONF_CAPACITY
 ]
 
 CONF_INVERT_CURRENT = "invert_current"
@@ -78,6 +80,12 @@ CONFIG_SCHEMA = cv.All(
                 unit_of_measurement=UNIT_MINUTE,
                 icon=ICON_TIMER,
                 accuracy_decimals=0,
+                state_class=STATE_CLASS_MEASUREMENT,
+            ),
+            cv.Optional(CONF_CAPACITY): sensor.sensor_schema(
+                unit_of_measurement=UNIT_AMPERE,
+                icon=ICON_FLASH,
+                accuracy_decimals=2,
                 state_class=STATE_CLASS_MEASUREMENT,
             ),
             cv.Optional(CONF_INVERT_CURRENT, default=False): cv.boolean,

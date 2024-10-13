@@ -132,6 +132,8 @@ void JuncTekKGF::handle_status(const char* buffer)
     this->temperature_->publish_state(temperature);
   if (minutes_sensor_)
     this->minutes_sensor_->publish_state(remainingTimeMinutes);
+  if (capacity_sensor_)
+    this->capacity_sensor_->publish_state(ampHourRemaining);
   this->last_stats_ = esphome::millis();
 }
 
